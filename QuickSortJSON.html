@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>QuickSort JSON</title>
+</head>
+<body>
+
+<h2>Ordenamiento desde JSON</h2>
+
+<button onclick="ordenarJSON()">
+Ordenar JSON
+</button>
+
+<h3 id="salida"></h3>
+
+<script>
+
+const datos = {
+
+    numeros:[50,10,40,20,30]
+
+};
+
+function quickSort(arr){
+
+    if(arr.length <= 1)
+        return arr;
+
+    let pivote =
+    arr[arr.length-1];
+
+    let izq = [];
+    let der = [];
+
+    for(let i=0;i<arr.length-1;i++){
+
+        if(arr[i] < pivote)
+            izq.push(arr[i]);
+        else
+            der.push(arr[i]);
+    }
+
+    return [
+        ...quickSort(izq),
+        pivote,
+        ...quickSort(der)
+    ];
+}
+
+function ordenarJSON(){
+
+    let resultado =
+    quickSort(datos.numeros);
+
+    document.getElementById("salida")
+    .innerHTML =
+    "Ordenado: " +
+    resultado.join(" ");
+}
+
+</script>
+
+</body>
+</html>

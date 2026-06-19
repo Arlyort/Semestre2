@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pila</title>
+</head>
+<body>
+
+<h1>Pila Dinámica</h1>
+
+<input type="number" id="valor">
+
+<button onclick="pushPila()">
+Push
+</button>
+
+<button onclick="popPila()">
+Pop
+</button>
+
+<button onclick="mostrarPila()">
+Mostrar
+</button>
+
+<h3 id="resultado"></h3>
+
+<script>
+
+let pila = [];
+
+function pushPila() {
+
+    let valor =
+    document.getElementById("valor").value;
+
+    pila.push(Number(valor));
+
+    mostrarPila();
+}
+
+function popPila() {
+
+    if(pila.length > 0)
+        pila.pop();
+
+    mostrarPila();
+}
+
+function mostrarPila() {
+
+    document.getElementById("resultado").innerHTML =
+    "Pila: " + pila.slice().reverse().join(" | ");
+}
+
+</script>
+
+</body>
+</html>

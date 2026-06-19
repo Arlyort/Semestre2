@@ -4,8 +4,8 @@
 CPP      = g++.exe
 CC       = gcc.exe
 WINDRES  = windres.exe
-OBJ      = main.o Ejercicio16.o Ejercicio17.o
-LINKOBJ  = main.o Ejercicio16.o Ejercicio17.o
+OBJ      = Ejercicio16.o Ejercicio17.o Ejercicio18.o Ejercicio2.o Ejercicio3.o Ejercicio4.o Ejercicio5.o Ejercicio6.o Ejercicio7.o Ejercicio7_5.o Ejercicio8.o Ejercicio9.o Ejercicio10.o Ejercicio19.o Ejercicio20.o Ejercicio21.o PILA_COMPLETO.o COLA_COMPLETO.o LISTA_COMPLETO.o ORDENAMIENTO_COMPLETO.o ORDENAMIENTO_INDIRECTO_COMPLETO.o CALCULADORA_COMPLETO.o ARBOL.o GRAFO.o
+LINKOBJ  = Ejercicio16.o Ejercicio17.o Ejercicio18.o Ejercicio2.o Ejercicio3.o Ejercicio4.o Ejercicio5.o Ejercicio6.o Ejercicio7.o Ejercicio7_5.o Ejercicio8.o Ejercicio9.o Ejercicio10.o Ejercicio19.o Ejercicio20.o Ejercicio21.o PILA_COMPLETO.o COLA_COMPLETO.o LISTA_COMPLETO.o ORDENAMIENTO_COMPLETO.o ORDENAMIENTO_INDIRECTO_COMPLETO.o CALCULADORA_COMPLETO.o ARBOL.o GRAFO.o
 LIBS     = -L"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib" -L"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/lib" -static-libgcc
 INCS     = -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include"
 CXXINCS  = -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include/c++"
@@ -24,11 +24,74 @@ clean: clean-custom
 $(BIN): $(OBJ)
 	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
 
-main.o: main.cpp
-	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
-
 Ejercicio16.o: Ejercicio16.cpp
 	$(CPP) -c Ejercicio16.cpp -o Ejercicio16.o $(CXXFLAGS)
 
 Ejercicio17.o: Ejercicio17.cpp
 	$(CPP) -c Ejercicio17.cpp -o Ejercicio17.o $(CXXFLAGS)
+
+Ejercicio18.o: Ejercicio18.cpp
+	$(CPP) -c Ejercicio18.cpp -o Ejercicio18.o $(CXXFLAGS)
+
+Ejercicio2.o: Ejercicio2.cpp
+	$(CPP) -c Ejercicio2.cpp -o Ejercicio2.o $(CXXFLAGS)
+
+Ejercicio3.o: Ejercicio3.cpp
+	$(CPP) -c Ejercicio3.cpp -o Ejercicio3.o $(CXXFLAGS)
+
+Ejercicio4.o: Ejercicio4.cpp
+	$(CPP) -c Ejercicio4.cpp -o Ejercicio4.o $(CXXFLAGS)
+
+Ejercicio5.o: Ejercicio5.cpp
+	$(CPP) -c Ejercicio5.cpp -o Ejercicio5.o $(CXXFLAGS)
+
+Ejercicio6.o: Ejercicio6.cpp
+	$(CPP) -c Ejercicio6.cpp -o Ejercicio6.o $(CXXFLAGS)
+
+Ejercicio7.o: Ejercicio7.cpp
+	$(CPP) -c Ejercicio7.cpp -o Ejercicio7.o $(CXXFLAGS)
+
+Ejercicio7_5.o: Ejercicio7_5.cpp
+	$(CPP) -c Ejercicio7_5.cpp -o Ejercicio7_5.o $(CXXFLAGS)
+
+Ejercicio8.o: Ejercicio8.cpp
+	$(CPP) -c Ejercicio8.cpp -o Ejercicio8.o $(CXXFLAGS)
+
+Ejercicio9.o: Ejercicio9.cpp
+	$(CPP) -c Ejercicio9.cpp -o Ejercicio9.o $(CXXFLAGS)
+
+Ejercicio10.o: Ejercicio10.cpp
+	$(CPP) -c Ejercicio10.cpp -o Ejercicio10.o $(CXXFLAGS)
+
+Ejercicio19.o: Ejercicio19.cpp
+	$(CPP) -c Ejercicio19.cpp -o Ejercicio19.o $(CXXFLAGS)
+
+Ejercicio20.o: Ejercicio20.cpp
+	$(CPP) -c Ejercicio20.cpp -o Ejercicio20.o $(CXXFLAGS)
+
+Ejercicio21.o: Ejercicio21.cpp
+	$(CPP) -c Ejercicio21.cpp -o Ejercicio21.o $(CXXFLAGS)
+
+PILA_COMPLETO.o: PILA_COMPLETO.cpp
+	$(CPP) -c PILA_COMPLETO.cpp -o PILA_COMPLETO.o $(CXXFLAGS)
+
+COLA_COMPLETO.o: COLA_COMPLETO.cpp
+	$(CPP) -c COLA_COMPLETO.cpp -o COLA_COMPLETO.o $(CXXFLAGS)
+
+LISTA_COMPLETO.o: LISTA_COMPLETO.cpp
+	$(CPP) -c LISTA_COMPLETO.cpp -o LISTA_COMPLETO.o $(CXXFLAGS)
+
+ORDENAMIENTO_COMPLETO.o: ORDENAMIENTO_COMPLETO.cpp
+	$(CPP) -c ORDENAMIENTO_COMPLETO.cpp -o ORDENAMIENTO_COMPLETO.o $(CXXFLAGS)
+
+ORDENAMIENTO_INDIRECTO_COMPLETO.o: ORDENAMIENTO_INDIRECTO_COMPLETO.cpp
+	$(CPP) -c ORDENAMIENTO_INDIRECTO_COMPLETO.cpp -o ORDENAMIENTO_INDIRECTO_COMPLETO.o $(CXXFLAGS)
+
+CALCULADORA_COMPLETO.o: CALCULADORA_COMPLETO.cpp
+	$(CPP) -c CALCULADORA_COMPLETO.cpp -o CALCULADORA_COMPLETO.o $(CXXFLAGS)
+
+ARBOL.o: ARBOL.cpp
+	$(CPP) -c ARBOL.cpp -o ARBOL.o $(CXXFLAGS)
+
+GRAFO.o: GRAFO.cpp
+	$(CPP) -c GRAFO.cpp -o GRAFO.o $(CXXFLAGS)

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Lista Enlazada</title>
+</head>
+<body>
+
+<h1>Lista Enlazada</h1>
+
+<input type="number" id="valor">
+
+<button onclick="insertarInicio()">
+Insertar Inicio
+</button>
+
+<button onclick="insertarFinal()">
+Insertar Final
+</button>
+
+<button onclick="buscar()">
+Buscar
+</button>
+
+<button onclick="eliminarNodo()">
+Eliminar
+</button>
+
+<button onclick="mostrar()">
+Mostrar
+</button>
+
+<h3 id="resultado"></h3>
+
+<script>
+
+let lista = [];
+
+function insertarInicio(){
+
+    let valor =
+    Number(document.getElementById("valor").value);
+
+    lista.unshift(valor);
+
+    mostrar();
+}
+
+function insertarFinal(){
+
+    let valor =
+    Number(document.getElementById("valor").value);
+
+    lista.push(valor);
+
+    mostrar();
+}
+
+function buscar(){
+
+    let valor =
+    Number(document.getElementById("valor").value);
+
+    let pos = lista.indexOf(valor);
+
+    if(pos >= 0)
+        alert("Encontrado en posición " + (pos+1));
+    else
+        alert("No encontrado");
+}
+
+function eliminarNodo(){
+
+    let valor =
+    Number(document.getElementById("valor").value);
+
+    let pos = lista.indexOf(valor);
+
+    if(pos >= 0)
+        lista.splice(pos,1);
+
+    mostrar();
+}
+
+function mostrar(){
+
+    document.getElementById("resultado").innerHTML =
+    lista.join(" → ") + " → NULL";
+}
+
+</script>
+
+</body>
+</html>

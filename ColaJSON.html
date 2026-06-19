@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cola JSON</title>
+</head>
+<body>
+
+<h2>Cola cargada desde JSON</h2>
+
+<button onclick="mostrarJSON()">
+Mostrar JSON
+</button>
+
+<h3 id="salida"></h3>
+
+<script>
+
+const datos = {
+    cola:[10,20,30]
+};
+
+function mostrarJSON(){
+
+    document.getElementById("salida").innerHTML =
+    "Cola: " +
+    datos.cola.join(" → ");
+}
+
+</script>
+
+</body>
+</html>

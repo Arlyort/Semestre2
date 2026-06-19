@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Pila XML</title>
+</head>
+<body>
+
+<h2>Pila cargada desde XML</h2>
+
+<button onclick="cargarXML()">
+Mostrar XML
+</button>
+
+<h3 id="salida"></h3>
+
+<script>
+
+function cargarXML(){
+
+let texto = `
+<pila>
+    <elemento>10</elemento>
+    <elemento>20</elemento>
+    <elemento>30</elemento>
+</pila>
+`;
+
+let parser = new DOMParser();
+
+let xml =
+parser.parseFromString(texto,"text/xml");
+
+let elementos =
+xml.getElementsByTagName("elemento");
+
+let resultado = [];
+
+for(let i=0;i<elementos.length;i++){
+
+    resultado.push(
+        elementos[i].textContent
+    );
+}
+
+document.getElementById("salida").innerHTML =
+"Pila: " +
+resultado.reverse().join(" | ");
+}
+
+</script>
+
+</body>
+</html>

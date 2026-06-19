@@ -1,0 +1,69 @@
+#include <iostream>
+using namespace std;
+
+class Nodo {
+public:
+    int dato;
+    Nodo* sig;
+
+    Nodo(int d) {
+        dato = d;
+        sig = nullptr;
+    }
+};
+
+class Pila {
+
+private:
+    Nodo* tope;
+
+public:
+
+    Pila() {
+        tope = nullptr;
+    }
+
+    void push(int dato) {
+
+        Nodo* nuevo = new Nodo(dato);
+
+        nuevo->sig = tope;
+
+        tope = nuevo;
+    }
+
+    void pop() {
+
+        if(tope == nullptr)
+            return;
+
+        Nodo* aux = tope;
+
+        tope = tope->sig;
+
+        delete aux;
+    }
+
+    void mostrar() {
+
+        Nodo* aux = tope;
+
+        while(aux != nullptr) {
+            cout << aux->dato << endl;
+            aux = aux->sig;
+        }
+    }
+};
+
+int main() {
+
+    Pila p;
+
+    p.push(10);
+    p.push(20);
+    p.push(30);
+
+    p.mostrar();
+
+    return 0;
+}

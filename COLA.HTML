@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cola</title>
+</head>
+<body>
+
+<h1>Cola Dinámica</h1>
+
+<input type="number" id="valor">
+
+<button onclick="enqueue()">
+Enqueue
+</button>
+
+<button onclick="dequeue()">
+Dequeue
+</button>
+
+<button onclick="mostrar()">
+Mostrar
+</button>
+
+<h3 id="resultado"></h3>
+
+<script>
+
+let cola = [];
+
+function enqueue() {
+
+    let valor =
+    document.getElementById("valor").value;
+
+    cola.push(Number(valor));
+
+    mostrar();
+}
+
+function dequeue() {
+
+    if(cola.length > 0)
+        cola.shift();
+
+    mostrar();
+}
+
+function mostrar() {
+
+    document.getElementById("resultado").innerHTML =
+    "Cola: " + cola.join(" → ");
+}
+
+</script>
+
+</body>
+</html>

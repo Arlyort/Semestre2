@@ -1,0 +1,116 @@
+#include <iostream>
+using namespace std;
+
+class OrdenamientoIndirecto {
+
+protected:
+
+    int* datos;
+    int* indice;
+    int n;
+
+public:
+
+    OrdenamientoIndirecto(int arr[], int tam) {
+
+        n = tam;
+
+        datos = new int[n];
+        indice = new int[n];
+
+        for(int i=0; i<n; i++) {
+
+            datos[i] = arr[i];
+            indice[i] = i;
+        }
+    }
+
+    virtual void ordenar() = 0;
+
+    void mostrarOriginal() {
+
+        cout << "Datos originales:\n";
+
+        for(int i=0; i<n; i++)
+            cout << datos[i] << " ";
+
+        cout << endl;
+    }
+
+    void mostrarOrdenado() {
+
+        cout << "Orden indirecto:\n";
+
+        for(int i=0; i<n; i++)
+            cout << datos[indice[i]] << " ";
+
+        cout << endl;
+    }
+
+    virtual ~OrdenamientoIndirecto() {
+
+        delete[] datos;
+        delete[] indice;
+    }
+};
+
+class QuickIndirecto : public OrdenamientoIndirecto {
+
+private:
+
+    int particion(int bajo, int alto) {
+
+        int pivote = datos[indice[alto]];
+        int i = bajo - 1;
+
+        for(int j=bajo; j<alto; j++) {
+
+            if(datos[indice[j]] < pivote) {
+
+                i++;
+
+                swap(indice[i], indice[j]);
+            }
+        }
+
+        swap(indice[i+1], indice[alto]);
+
+        return i+1;
+    }
+
+    void quick(int bajo, int alto) {
+
+        if(bajo < alto) {
+
+            int pi = particion(bajo, alto);
+
+            quick(bajo, pi-1);
+            quick(pi+1, alto);
+        }
+    }
+
+public:
+
+    QuickIndirecto(int arr[], int tam)
+        : OrdenamientoIndirecto(arr, tam) {}
+
+    void ordenar() override {
+
+        quick(0, n-1);
+    }
+};
+
+int main() {
+
+    int datos[] = {40,10,60,20,50};
+
+    QuickIndirecto obj(datos,5);
+
+    obj.mostrarOriginal();
+
+    obj.ordenar();
+
+    obj.mostrarOrdenado();
+
+    return 0;
+}

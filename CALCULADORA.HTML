@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculadora</title>
+</head>
+<body>
+
+<h2>Calculadora</h2>
+
+<label>Numero 1:</label>
+<input type="number" id="n1"><br><br>
+
+<label>Numero 2:</label>
+<input type="number" id="n2"><br><br>
+
+<select id="op">
+    <option value="+">Suma</option>
+    <option value="-">Resta</option>
+    <option value="*">Multiplicación</option>
+    <option value="/">División</option>
+</select>
+
+<br><br>
+
+<button onclick="calcular()">Calcular</button>
+
+<h3 id="resultado"></h3>
+
+<script>
+
+function calcular(){
+
+    let a = parseFloat(document.getElementById("n1").value);
+    let b = parseFloat(document.getElementById("n2").value);
+    let op = document.getElementById("op").value;
+
+    let r;
+
+    switch(op){
+
+        case "+":
+            r = a + b;
+            break;
+
+        case "-":
+            r = a - b;
+            break;
+
+        case "*":
+            r = a * b;
+            break;
+
+        case "/":
+
+            if(b==0){
+                document.getElementById("resultado").innerHTML =
+                "No se puede dividir entre cero";
+                return;
+            }
+
+            r = a / b;
+            break;
+    }
+
+    document.getElementById("resultado").innerHTML =
+    "Resultado: " + r;
+}
+
+</script>
+
+</body>
+</html>

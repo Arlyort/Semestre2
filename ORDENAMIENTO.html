@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>QuickSort</title>
+</head>
+<body>
+
+<h1>QuickSort</h1>
+
+<p>
+Ingrese números separados por comas
+</p>
+
+<input type="text" id="datos" size="40">
+
+<button onclick="ordenar()">
+Ordenar
+</button>
+
+<h3 id="original"></h3>
+<h3 id="resultado"></h3>
+
+<script>
+
+function quickSort(arr){
+
+    if(arr.length <= 1)
+        return arr;
+
+    let pivote =
+    arr[arr.length-1];
+
+    let izquierda = [];
+    let derecha = [];
+
+    for(let i=0;i<arr.length-1;i++){
+
+        if(arr[i] < pivote)
+            izquierda.push(arr[i]);
+        else
+            derecha.push(arr[i]);
+    }
+
+    return [
+        ...quickSort(izquierda),
+        pivote,
+        ...quickSort(derecha)
+    ];
+}
+
+function ordenar(){
+
+    let datos =
+    document.getElementById("datos")
+    .value
+    .split(",")
+    .map(Number);
+
+    let ordenado =
+    quickSort(datos);
+
+    document.getElementById("original")
+    .innerHTML =
+    "Original: " + datos.join(" ");
+
+    document.getElementById("resultado")
+    .innerHTML =
+    "Ordenado: " + ordenado.join(" ");
+}
+
+</script>
+
+</body>
+</html>

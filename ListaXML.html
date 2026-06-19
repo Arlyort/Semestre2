@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Lista XML</title>
+</head>
+<body>
+
+<h2>Lista desde XML</h2>
+
+<button onclick="cargarXML()">
+Mostrar Lista
+</button>
+
+<h3 id="salida"></h3>
+
+<script>
+
+function cargarXML(){
+
+let texto = `
+<lista>
+    <nodo>10</nodo>
+    <nodo>20</nodo>
+    <nodo>30</nodo>
+    <nodo>40</nodo>
+</lista>
+`;
+
+let parser = new DOMParser();
+
+let xml =
+parser.parseFromString(texto,"text/xml");
+
+let nodos =
+xml.getElementsByTagName("nodo");
+
+let resultado = [];
+
+for(let i=0;i<nodos.length;i++){
+
+    resultado.push(
+        nodos[i].textContent
+    );
+}
+
+document.getElementById("salida").innerHTML =
+resultado.join(" → ") + " → NULL";
+}
+
+</script>
+
+</body>
+</html>

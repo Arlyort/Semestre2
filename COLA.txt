@@ -1,0 +1,63 @@
+#include <iostream>
+using namespace std;
+
+class Nodo {
+
+public:
+
+    int dato;
+    Nodo* sig;
+
+    Nodo(int d) {
+        dato = d;
+        sig = nullptr;
+    }
+};
+
+class Cola {
+
+private:
+
+    Nodo* frente;
+    Nodo* fin;
+
+public:
+
+    Cola() {
+        frente = fin = nullptr;
+    }
+
+    void enqueue(int dato) {
+
+        Nodo* nuevo = new Nodo(dato);
+
+        if(fin == nullptr) {
+            frente = fin = nuevo;
+        }
+        else {
+            fin->sig = nuevo;
+            fin = nuevo;
+        }
+    }
+
+    void mostrar() {
+
+        Nodo* aux = frente;
+
+        while(aux != nullptr) {
+            cout << aux->dato << " ";
+            aux = aux->sig;
+        }
+    }
+};
+
+int main() {
+
+    Cola c;
+
+    c.enqueue(10);
+    c.enqueue(20);
+    c.enqueue(30);
+
+    c.mostrar();
+}

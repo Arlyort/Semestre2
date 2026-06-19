@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cola XML</title>
+</head>
+<body>
+
+<h2>Cola cargada desde XML</h2>
+
+<button onclick="cargarXML()">
+Mostrar XML
+</button>
+
+<h3 id="salida"></h3>
+
+<script>
+
+function cargarXML(){
+
+let texto = `
+<cola>
+    <elemento>10</elemento>
+    <elemento>20</elemento>
+    <elemento>30</elemento>
+</cola>
+`;
+
+let parser = new DOMParser();
+
+let xml =
+parser.parseFromString(texto,"text/xml");
+
+let elementos =
+xml.getElementsByTagName("elemento");
+
+let resultado = [];
+
+for(let i=0;i<elementos.length;i++){
+
+    resultado.push(
+        elementos[i].textContent
+    );
+}
+
+document.getElementById("salida").innerHTML =
+"Cola: " +
+resultado.join(" → ");
+}
+
+</script>
+
+</body>
+</html>

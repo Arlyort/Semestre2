@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>QuickSort Indirecto XML</title>
+</head>
+<body>
+
+<h2>Ordenamiento Indirecto XML</h2>
+
+<button onclick="procesar()">
+Procesar XML
+</button>
+
+<h3 id="salida"></h3>
+
+<script>
+
+function procesar(){
+
+let texto = `
+<numeros>
+    <dato>40</dato>
+    <dato>10</dato>
+    <dato>60</dato>
+    <dato>20</dato>
+    <dato>50</dato>
+</numeros>
+`;
+
+let parser =
+new DOMParser();
+
+let xml =
+parser.parseFromString(texto,
+"text/xml");
+
+let datosXML =
+xml.getElementsByTagName("dato");
+
+let datos = [];
+
+for(let i=0;i<datosXML.length;i++){
+
+    datos.push(
+        Number(datosXML[i].textContent)
+    );
+}
+
+let indices =
+datos.map((v,i)=>i);
+
+indices.sort(
+(a,b)=>datos[a]-datos[b]
+);
+
+let ordenado =
+indices.map(i=>datos[i]);
+
+document.getElementById("salida").innerHTML =
+"Original: "
++ datos.join(" ")
++ "<br><br>Indices: "
++ indices.join(" ")
++ "<br><br>Indirecto: "
++ ordenado.join(" ");
+}
+
+</script>
+
+</body>
+</html>

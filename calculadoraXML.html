@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculadora XML</title>
+</head>
+<body>
+
+<h2>Calculadora usando XML</h2>
+
+<button onclick="calcular()">Calcular</button>
+
+<h3 id="resultado"></h3>
+
+<script>
+
+function calcular(){
+
+    let parser = new DOMParser();
+
+    let xmlString = `
+    <calculadora>
+        <numero1>20</numero1>
+        <numero2>5</numero2>
+        <operacion>/</operacion>
+    </calculadora>`;
+
+    let xml = parser.parseFromString(
+        xmlString,
+        "text/xml"
+    );
+
+    let n1 =
+    parseFloat(xml.getElementsByTagName("numero1")[0].textContent);
+
+    let n2 =
+    parseFloat(xml.getElementsByTagName("numero2")[0].textContent);
+
+    let op =
+    xml.getElementsByTagName("operacion")[0].textContent;
+
+    let r;
+
+    switch(op){
+
+        case "+":
+            r = n1+n2;
+            break;
+
+        case "-":
+            r = n1-n2;
+            break;
+
+        case "*":
+            r = n1*n2;
+            break;
+
+        case "/":
+            r = n1/n2;
+            break;
+    }
+
+    document.getElementById("resultado").innerHTML =
+    "Resultado: " + r;
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculadora JSON</title>
+</head>
+<body>
+
+<h2>Calculadora usando JSON</h2>
+
+<button onclick="calcular()">Calcular</button>
+
+<h3 id="resultado"></h3>
+
+<script>
+
+function calcular(){
+
+    const datos = {
+        numero1:20,
+        numero2:5,
+        operacion:"/"
+    };
+
+    let r;
+
+    switch(datos.operacion){
+
+        case "+":
+            r = datos.numero1 + datos.numero2;
+            break;
+
+        case "-":
+            r = datos.numero1 - datos.numero2;
+            break;
+
+        case "*":
+            r = datos.numero1 * datos.numero2;
+            break;
+
+        case "/":
+            r = datos.numero1 / datos.numero2;
+            break;
+    }
+
+    document.getElementById("resultado").innerHTML =
+    "Resultado: " + r;
+}
+
+</script>
+
+</body>
+</html>

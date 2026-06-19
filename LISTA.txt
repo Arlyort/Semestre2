@@ -1,0 +1,58 @@
+#include <iostream>
+using namespace std;
+
+class Nodo {
+
+public:
+
+    int dato;
+    Nodo* sig;
+
+    Nodo(int d) {
+        dato = d;
+        sig = nullptr;
+    }
+};
+
+class Lista {
+
+private:
+
+    Nodo* cabeza;
+
+public:
+
+    Lista() {
+        cabeza = nullptr;
+    }
+
+    void insertar(int dato) {
+
+        Nodo* nuevo = new Nodo(dato);
+
+        nuevo->sig = cabeza;
+
+        cabeza = nuevo;
+    }
+
+    void mostrar() {
+
+        Nodo* aux = cabeza;
+
+        while(aux != nullptr) {
+            cout << aux->dato << " ";
+            aux = aux->sig;
+        }
+    }
+};
+
+int main() {
+
+    Lista l;
+
+    l.insertar(10);
+    l.insertar(20);
+    l.insertar(30);
+
+    l.mostrar();
+}

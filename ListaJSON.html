@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Lista JSON</title>
+</head>
+<body>
+
+<h2>Lista desde JSON</h2>
+
+<button onclick="mostrarJSON()">
+Mostrar Lista
+</button>
+
+<h3 id="salida"></h3>
+
+<script>
+
+const datos = {
+
+    lista:[10,20,30,40]
+
+};
+
+function mostrarJSON(){
+
+    document.getElementById("salida").innerHTML =
+    datos.lista.join(" → ") + " → NULL";
+}
+
+</script>
+
+</body>
+</html>

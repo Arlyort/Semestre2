@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>QuickSort XML</title>
+</head>
+<body>
+
+<h2>Ordenamiento desde XML</h2>
+
+<button onclick="cargarXML()">
+Ordenar XML
+</button>
+
+<h3 id="salida"></h3>
+
+<script>
+
+function quickSort(arr){
+
+    if(arr.length <= 1)
+        return arr;
+
+    let pivote =
+    arr[arr.length-1];
+
+    let izq = [];
+    let der = [];
+
+    for(let i=0;i<arr.length-1;i++){
+
+        if(arr[i] < pivote)
+            izq.push(arr[i]);
+        else
+            der.push(arr[i]);
+    }
+
+    return [
+        ...quickSort(izq),
+        pivote,
+        ...quickSort(der)
+    ];
+}
+
+function cargarXML(){
+
+let texto = `
+<numeros>
+    <dato>50</dato>
+    <dato>10</dato>
+    <dato>40</dato>
+    <dato>20</dato>
+    <dato>30</dato>
+</numeros>
+`;
+
+let parser = new DOMParser();
+
+let xml =
+parser.parseFromString(texto,"text/xml");
+
+let datos =
+xml.getElementsByTagName("dato");
+
+let arreglo = [];
+
+for(let i=0;i<datos.length;i++){
+
+    arreglo.push(
+        Number(datos[i].textContent)
+    );
+}
+
+let ordenado =
+quickSort(arreglo);
+
+document.getElementById("salida")
+.innerHTML =
+"Ordenado: " +
+ordenado.join(" ");
+}
+
+</script>
+
+</body>
+</html>

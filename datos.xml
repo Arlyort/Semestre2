@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+
+<calculadora>
+
+    <numero1>20</numero1>
+
+    <numero2>5</numero2>
+
+    <operacion>/</operacion>
+
+</calculadora>
