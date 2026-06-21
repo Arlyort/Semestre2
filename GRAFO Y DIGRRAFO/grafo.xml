@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<grafo>
+    <vertice id="1">
+        <conexion>2</conexion>
+    </vertice>
+    <vertice id="2">
+        <conexion>1</conexion>
+    </vertice>
+</grafo>

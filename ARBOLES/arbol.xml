@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<estructura>
+  <elemento id="1">
+    <rama>2</rama>
+    <rama>3</rama>
+  </elemento>
+  <elemento id="2">
+    <rama>4</rama>
+    <rama>5</rama>
+  </elemento>
+  <elemento id="3">
+    <rama>6</rama>
+    <rama>7</rama>
+  </elemento>
+  <elemento id="4">
+    <rama>8</rama>
+    <rama>9</rama>
+  </elemento>
+  <elemento id="5">
+    <rama>10</rama>
+  </elemento>
+  <elemento id="6">
+  </elemento>
+  <elemento id="7">
+  </elemento>
+  <elemento id="8">
+  </elemento>
+  <elemento id="9">
+  </elemento>
+  <elemento id="10">
+  </elemento>
+</estructura>

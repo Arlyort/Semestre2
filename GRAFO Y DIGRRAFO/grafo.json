@@ -1,0 +1,7 @@
+{
+  "grafo": [
+    {"origen": 1, "destino": 2, "costo": 10, "tiempo": 5},
+    {"origen": 1, "destino": 3, "costo": 20, "tiempo": 10},
+    {"origen": 2, "destino": 3, "costo": 5, "tiempo": 2},
+  ]
+}
